@@ -1,5 +1,7 @@
+import useGetRecipe from "./useGetRecipe";
+
 const RecipesDetails = ({ recipeId }) => {
-  console.log(recipeId);
+  const { recipe } = useGetRecipe(recipeId);
   return <div></div>;
 };
 

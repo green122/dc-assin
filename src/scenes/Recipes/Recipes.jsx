@@ -8,7 +8,7 @@ const Recipes = () => {
   return (
     <div>
       <RecipesPicker selectRecipe={setRecipeId} />
-      <RecipesDetails recipeId={recipeId} />
+      {recipeId && <RecipesDetails recipeId={recipeId} />}
     </div>
   );
 };

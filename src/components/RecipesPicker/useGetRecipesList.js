@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import fixture from "./fixture";
+import { getRecipesList } from "../../api/server";
 
 export default function useGetRecipesList() {
   const [loading, setLoading] = useState(false);
@@ -7,11 +7,10 @@ export default function useGetRecipesList() {
 
   useEffect(() => {
     setLoading(true);
-    new Promise((resolve) => {
-      setTimeout(resolve, 3000);
-    }).then(() => {
+
+    getRecipesList().then((recipesList) => {
       setLoading(false);
-      setRecipes(fixture);
+      setRecipes(recipesList);
     });
 
     // cause it's a fake request we don't need to put this dependency in a array
