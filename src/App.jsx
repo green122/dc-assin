@@ -1,4 +1,5 @@
 import "./App.css";
+import "antd/dist/antd.css";
 import Recipes from "./scenes/Recipes/Recipes";
 
 function App() {
