@@ -1,5 +1,5 @@
 import useGetRecipesList from "./useGetRecipesList";
-import { Menu } from "antd";
+import { Menu, Spin } from "antd";
 import { useCallback, useEffect, useState } from "react";
 
 const RecipesPicker = ({ selectRecipe }) => {
@@ -18,6 +18,8 @@ const RecipesPicker = ({ selectRecipe }) => {
     if (!recipes || !recipes.length) return;
     onSelect(recipes[0].id);
   }, [recipes, onSelect]);
+
+  if (loading) return <Spin size="large" />;
 
   return (
     <Menu mode="inline" selectedKeys={[selectedRecipe]}>

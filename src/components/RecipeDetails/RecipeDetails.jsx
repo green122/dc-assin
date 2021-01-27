@@ -1,5 +1,5 @@
 import useGetRecipe from "./useGetRecipe";
-import { Col, List, Row, Image, Typography } from "antd";
+import { Col, List, Row, Image, Typography, Spin } from "antd";
 import styled from "styled-components";
 
 const { Text } = Typography;
@@ -16,25 +16,27 @@ const ListsContainer = styled(Row)`
   margin-top: ${(props) => props.theme.sizes.bigGutter}px;
 `;
 
+const SubHeader = styled(Text)`
+  margin-right: ${(props) => props.theme.sizes.smallGutter}px;
+`;
+
 const RecipesDetails = ({ recipeId }) => {
-  const { recipe } = useGetRecipe(recipeId);
+  const { loading, recipe } = useGetRecipe(recipeId);
 
   if (!recipe) return null;
+
+  if (loading) return <Spin size="large" />;
 
   return (
     <>
       <Header>
         <Col span={24}>
-          <Text className="fieldName" strong>
-            Recipe Details
-          </Text>
+          <Text strong>Recipe Details</Text>
         </Col>
       </Header>
       <Row>
         <Col span={24}>
-          <Text className="fieldName" strong>
-            Recipe
-          </Text>
+          <SubHeader strong>Recipe</SubHeader>
           {recipe.name}
         </Col>
       </Row>

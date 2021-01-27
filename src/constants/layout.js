@@ -6,6 +6,7 @@ export const theme = {
   sizes: {
     bigGutter: 24,
     mediumGutter: 16,
+    smallGutter: 16,
   },
   fontSizes: {
     medium: 16,
