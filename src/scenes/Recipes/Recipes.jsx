@@ -1,11 +1,14 @@
 import RecipesDetails from "../../components/RecipeDetails/RecipeDetails";
 import RecipesPicker from "../../components/RecipesPicker/RecipesPicker";
+import useSelectRecipe from "./useSelectRecipe";
 
 const Recipes = () => {
+  const { recipeId, setRecipeId } = useSelectRecipe();
+
   return (
     <div>
-      <RecipesPicker />
-      <RecipesDetails />
+      <RecipesPicker selectRecipe={setRecipeId} />
+      <RecipesDetails recipeId={recipeId} />
     </div>
   );
 };
