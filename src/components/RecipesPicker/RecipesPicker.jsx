@@ -1,20 +1,33 @@
 import useGetRecipesList from "./useGetRecipesList";
 import { Menu } from "antd";
-/* <Menu
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%' }}
-          > */
+import { useCallback, useEffect, useState } from "react";
 
 const RecipesPicker = ({ selectRecipe }) => {
-  const { loading, recipes } = useGetRecipesList();
+  const { loading, recipes } = useGetRecipesList(selectRecipe);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+
+  const onSelect = useCallback(
+    (id) => {
+      setSelectedRecipe(id);
+      selectRecipe(id);
+    },
+    [selectRecipe]
+  );
+
+  useEffect(() => {
+    if (!recipes || !recipes.length) return;
+    onSelect(recipes[0].id);
+  }, [recipes, onSelect]);
 
   return (
-    <Menu mode="inline">
+    <Menu mode="inline" selectedKeys={[selectedRecipe]}>
       {recipes &&
         recipes.map((recipe) => (
-          <Menu.Item key={recipe.id} onClick={() => selectRecipe(recipe.id)}>
+          <Menu.Item
+            tabIndex={-1}
+            key={recipe.id}
+            onClick={() => onSelect(recipe.id)}
+          >
             {recipe.name}
           </Menu.Item>
         ))}

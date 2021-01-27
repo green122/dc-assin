@@ -1,11 +1,10 @@
-import "./App.css";
 import "antd/dist/antd.css";
-import Recipes from "./scenes/Recipes/Recipes";
+import Recipies from "./scenes/Recipes/Recipes";
 
 function App() {
   return (
     <div className="App">
-      <Recipes />
+      <Recipies />
     </div>
   );
 }

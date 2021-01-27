@@ -15,6 +15,9 @@ const recipes = [
       { name: "Add tomato and garlic" },
       { name: "Eat!!!" },
     ],
+    images: [
+      "https://supervalu.ie/thumbnail/720x400/var/files/real-food/recipes/Uploaded-2020/spaghetti-bolognese-recipe.jpg?",
+    ],
   },
   {
     id: "asdf",
