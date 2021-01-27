@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+## Installation
+
+I've used Antd library for the ready components but for styling and theming I've used
+`styled-components`. It let to add dynamic themes easily.
+
+I've simulated backend API by using fake methods that resolve Promises with the timeout.
+Probably it'd be better to use some libraries like `react-query`.
+
+TODO: error's handling and a better UI )
+
+## Installation
+
+### `yarn` in the project directory
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
